@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 """learning_users URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -23,4 +25,7 @@ urlpatterns = [
     path('special/', views.special,name='special'),
     path('basic_app/', include('basic_app.urls')),
     path('logout/', views.user_logout, name='logout'),
+   
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
